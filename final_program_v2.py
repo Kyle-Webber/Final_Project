@@ -6,9 +6,18 @@ QUIT = 4
 #This function displays a greeting and a blurb about the program when starting it.
 def main():
     print("Booting The Calculator....")
+    print("NOTE: This program requires that the statistics module be installed to function.")
     print("Welcome to The Calculator! This program is a multifunction calculator!")
+    user_values()
+ #This function runs the user input required to run the program.   
+def user_values():
+    global user_input
+    user_input = []
+    user_input = float(input("Please enter a number: "))
+    while user_input > 0:
+        user_input = float(input('Please enter a value greater than or equal to zero: '))  
     display_menu()
-
+    
 #This function displays the menu options.
 def display_menu():
     choice = 0
@@ -25,13 +34,10 @@ def display_menu():
             print("Invalid selection")
         elif choice > 4:
             print("Invalid selection")
+        elif NameError:
+            print("Invalid selection")
 
-def user_numbers():
-    user_input = []
-    user_input = float(input("Please enter a number: "))
-    while user_input > 0:
-        user_input = float(input('Please enter a value greater than or equal to zero: '))
-        
+#These functions handle the necessary calculations.
 def hand_average(AVERAGE):
     import statistics
     print(statistics.mean([user_input]))
@@ -43,7 +49,8 @@ def hand_median(MEDIAN):
 def hand_mode(MODE):
     import statistics
     print(statistics.mode([user_input]))
-    
+ 
+#This function handles the responses to the menu choice.  
 def handle_choice(choice):
     if choice == AVERAGE:
         return hand_average(AVERAGE)
@@ -55,3 +62,4 @@ def handle_choice(choice):
         print("Exiting the program... Have a nice day!")
     else:
         print("Invalid selection. Please try again.")
+main()
