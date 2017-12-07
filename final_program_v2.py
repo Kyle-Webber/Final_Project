@@ -13,9 +13,22 @@ def main():
 def user_values():
     global user_input
     user_input = []
-    user_input = float(input("Please enter a number: "))
+    try:
+        user_input = float(input("Please enter a number: "))
+    except NameError:
+        print("Invalid character")
+    except SyntaxError:
+        print("Invalid character")
+    
     while user_input > 0:
-        user_input = float(input('Please enter a value greater than or equal to zero: '))  
+        try:
+            user_input = float(input('Please enter a value greater than or equal to zero: '))  
+        except NameError:
+            print("Invalid character")
+            continue
+        except SyntaxError:
+            print("Invalid character")
+            continue
     display_menu()
     
 #This function displays the menu options.
@@ -27,15 +40,22 @@ def display_menu():
         print("2) Calculate the median of a set of numbers")
         print("3) Calculate the mode of a set of numbers")
         print("4) Quit")
-        choice = int(input("Enter your desired choice: "))
+        try:
+            choice = int(input("Enter your desired choice: "))
+        except NameError:
+            print("Invalid character")
+            continue
+        except SyntaxError:
+            print("Invalid character")
+            continue
+            
         output = handle_choice(choice)
     
         if choice > 1:
             print("Invalid selection")
         elif choice > 4:
             print("Invalid selection")
-        elif NameError:
-            print("Invalid selection")
+        
 
 #These functions handle the necessary calculations.
 def hand_average(AVERAGE):
